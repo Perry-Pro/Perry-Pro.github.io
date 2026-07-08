@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Periklis Providis — Embedded FW &amp; SW Engineer</title>
+<meta name="description" content="Portfolio of Periklis Providis, Embedded Firmware & Software Engineer — STM32, ESP32, RISC-V, IoT, PCB assembly, 3D design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFCF9;
+  --ink:#171B1E;
+  --ink-soft:#4A5158;
+  --line:#D8DAD4;
+  --green:#0F6E4F;
+  --green-dark:#0A523B;
+  --copper:#A9744F;
+  --chip:#20262B;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --disp:'Archivo','Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+a:hover{border-bottom-color:var(--green)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* ---------- title block ---------- */
+.titleblock{border-bottom:2px solid var(--ink)}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);border-bottom:1px solid var(--line);flex-wrap:wrap;gap:8px}
+.tb-top .rev{color:var(--green);font-weight:600}
+.tb-main{padding:44px 0 36px}
+.tb-main .partno{font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:.12em;margin-bottom:12px}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-.015em;text-transform:uppercase}
+.tb-main .role{font-family:var(--mono);font-size:clamp(13px,2vw,15px);color:var(--green-dark);margin-top:14px;letter-spacing:.08em}
+.tb-nav{display:flex;gap:22px;padding:12px 0;font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border-top:1px solid var(--line);flex-wrap:wrap}
+.tb-nav a{color:var(--ink-soft)}
+.tb-nav a:hover{color:var(--green)}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+.sec-head .num{font-family:var(--mono);font-size:13px;color:var(--copper);font-weight:600}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(20px,3vw,26px);letter-spacing:.02em;text-transform:uppercase}
+.lead{max-width:68ch;color:var(--ink);font-size:17px}
+.note{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:18px}
+
+/* ---------- features ---------- */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 40px;margin-top:8px}
+.features li{list-style:none;position:relative;padding:7px 0 7px 22px;font-size:15px}
+.features li::before{content:"▪";position:absolute;left:0;color:var(--green);font-size:12px;top:9px}
+
+/* ---------- pin diagram ---------- */
+.pinwrap{display:flex;justify-content:center;padding:8px 0 0}
+.pinsvg{width:100%;max-width:680px;height:auto}
+.pin-caption{text-align:center;font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:14px}
+
+/* ---------- experience ---------- */
+.job{display:grid;grid-template-columns:170px 1fr;gap:10px 36px;padding:26px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:none;padding-top:6px}
+.job .when{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);padding-top:4px}
+.job h3{font-family:var(--disp);font-size:18px;font-weight:700}
+.job .org{font-family:var(--mono);font-size:13px;color:var(--green-dark);margin:3px 0 10px}
+.job ul{margin-left:18px}
+.job li{margin:5px 0;font-size:15px;color:var(--ink)}
+@media(max-width:640px){.job{grid-template-columns:1fr;gap:4px 0}}
+
+/* ---------- cert / edu tables ---------- */
+.rows .row{display:grid;grid-template-columns:170px 1fr;gap:6px 36px;padding:16px 0;border-top:1px solid var(--line);font-size:15px}
+.rows .row:first-child{border-top:none}
+.rows .when{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);padding-top:2px}
+.rows h3{font-family:var(--disp);font-size:16px;font-weight:700}
+.rows p{color:var(--ink-soft);font-size:14.5px;margin-top:2px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--copper);border:1px solid var(--copper);border-radius:3px;padding:1px 7px;margin-left:8px;vertical-align:2px}
+@media(max-width:640px){.rows .row{grid-template-columns:1fr}}
+
+/* ---------- ordering info ---------- */
+.order{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:6px}
+.order a{display:block;border:1px solid var(--line);border-radius:6px;padding:16px 18px;color:var(--ink);transition:border-color .15s,transform .15s}
+.order a:hover{border-color:var(--green);transform:translateY(-2px)}
+.order .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px}
+.order .v{font-weight:600;font-size:15px;word-break:break-word}
+
+footer{padding:34px 0 46px;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* subtle reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="titleblock">
+  <div class="wrap">
+    <div class="tb-top">
+      <span>DATASHEET</span>
+      <span><span class="rev">REV 2026-A</span> · THESSALONIKI, GR</span>
+    </div>
+    <div class="tb-main">
+      <div class="partno">PART NO. PP-EMB-2026</div>
+      <h1>Periklis Providis</h1>
+      <div class="role">EMBEDDED FIRMWARE &amp; SOFTWARE ENGINEER</div>
+    </div>
+    <nav class="tb-nav" aria-label="Sections">
+      <a href="#desc">1 DESCRIPTION</a>
+      <a href="#pins">2 PIN CONFIGURATION</a>
+      <a href="#exp">3 OPERATING HISTORY</a>
+      <a href="#edu">4 EDUCATION</a>
+      <a href="#certs">5 CERTIFICATES</a>
+      <a href="#proj">6 APPLICATIONS</a>
+      <a href="#contact">7 ORDERING INFO</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="desc">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">1</span><h2>General Description</h2></div>
+    <p class="lead">Embedded Firmware &amp; Software Engineer with a genuine passion for microcontroller development, IoT systems, and low-level programming, backed by hands-on experience in PCB assembly, 3D modeling, and 3D printing. Comfortable across the full cycle — wiring up hardware, writing firmware, debugging, and delivering a working solution — on platforms ranging from Arduino and PIC to STM32, ESP32, and RISC-V.</p>
+    <ul class="features">
+      <li>Embedded C / C++ / Python / Assembly</li>
+      <li>STM32 · ESP32 · RISC-V · PIC · RPi · Jetson</li>
+      <li>MQTT/TLS · CAN FD · SPI · I2C · UART · RS485</li>
+      <li>PCB assembly &amp; component soldering</li>
+      <li>Fusion 360 · FDM/SLA 3D printing</li>
+      <li>Linux · macOS · Windows · Git · PlatformIO</li>
+    </ul>
+    <p class="note">Languages: Greek (native) · English (professional working proficiency)</p>
+  </div>
+</section>
+
+<section id="pins">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">2</span><h2>Pin Configuration</h2></div>
+    <div class="pinwrap">
+      <svg class="pinsvg" viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chip diagram with skills as pins">
+        <style>
+          .pl{font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#4A5158}
+          .pn{font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#A9744F}
+          .pin{fill:#B9BEC2;stroke:#171B1E;stroke-width:1}
+          .leg{stroke:#8A9096;stroke-width:2}
+        </style>
+        <!-- left pins -->
+        <g>
+          <line class="leg" x1="200" y1="80"  x2="240" y2="80"/><rect class="pin" x="232" y="74" width="14" height="12" rx="1"/><text class="pl" x="192" y="84" text-anchor="end">EMBEDDED C</text><text class="pn" x="252" y="84">1</text>
+          <line class="leg" x1="200" y1="115" x2="240" y2="115"/><rect class="pin" x="232" y="109" width="14" height="12" rx="1"/><text class="pl" x="192" y="119" text-anchor="end">C / C++</text><text class="pn" x="252" y="119">2</text>
+          <line class="leg" x1="200" y1="150" x2="240" y2="150"/><rect class="pin" x="232" y="144" width="14" height="12" rx="1"/><text class="pl" x="192" y="154" text-anchor="end">PYTHON</text><text class="pn" x="252" y="154">3</text>
+          <line class="leg" x1="200" y1="185" x2="240" y2="185"/><rect class="pin" x="232" y="179" width="14" height="12" rx="1"/><text class="pl" x="192" y="189" text-anchor="end">ASSEMBLY</text><text class="pn" x="252" y="189">4</text>
+          <line class="leg" x1="200" y1="220" x2="240" y2="220"/><rect class="pin" x="232" y="214" width="14" height="12" rx="1"/><text class="pl" x="192" y="224" text-anchor="end">STM32</text><text class="pn" x="252" y="224">5</text>
+          <line class="leg" x1="200" y1="255" x2="240" y2="255"/><rect class="pin" x="232" y="249" width="14" height="12" rx="1"/><text class="pl" x="192" y="259" text-anchor="end">ESP32</text><text class="pn" x="252" y="259">6</text>
+          <line class="leg" x1="200" y1="290" x2="240" y2="290"/><rect class="pin" x="232" y="284" width="14" height="12" rx="1"/><text class="pl" x="192" y="294" text-anchor="end">RISC-V</text><text class="pn" x="252" y="294">7</text>
+        </g>
+        <!-- right pins -->
+        <g>
+          <line class="leg" x1="440" y1="80"  x2="480" y2="80"/><rect class="pin" x="434" y="74" width="14" height="12" rx="1"/><text class="pl" x="488" y="84">MQTT / TLS</text><text class="pn" x="420" y="84" text-anchor="end">14</text>
+          <line class="leg" x1="440" y1="115" x2="480" y2="115"/><rect class="pin" x="434" y="109" width="14" height="12" rx="1"/><text class="pl" x="488" y="119">CAN FD</text><text class="pn" x="420" y="119" text-anchor="end">13</text>
+          <line class="leg" x1="440" y1="150" x2="480" y2="150"/><rect class="pin" x="434" y="144" width="14" height="12" rx="1"/><text class="pl" x="488" y="154">SPI / I2C / UART</text><text class="pn" x="420" y="154" text-anchor="end">12</text>
+          <line class="leg" x1="440" y1="185" x2="480" y2="185"/><rect class="pin" x="434" y="179" width="14" height="12" rx="1"/><text class="pl" x="488" y="189">RS485</text><text class="pn" x="420" y="189" text-anchor="end">11</text>
+          <line class="leg" x1="440" y1="220" x2="480" y2="220"/><rect class="pin" x="434" y="214" width="14" height="12" rx="1"/><text class="pl" x="488" y="224">PCB ASSEMBLY</text><text class="pn" x="420" y="224" text-anchor="end">10</text>
+          <line class="leg" x1="440" y1="255" x2="480" y2="255"/><rect class="pin" x="434" y="249" width="14" height="12" rx="1"/><text class="pl" x="488" y="259">FUSION 360</text><text class="pn" x="420" y="259" text-anchor="end">9</text>
+          <line class="leg" x1="440" y1="290" x2="480" y2="290"/><rect class="pin" x="434" y="284" width="14" height="12" rx="1"/><text class="pl" x="488" y="294">3D PRINTING</text><text class="pn" x="420" y="294" text-anchor="end">8</text>
+        </g>
+        <!-- chip body -->
+        <rect x="246" y="55" width="188" height="260" rx="8" fill="#20262B" stroke="#171B1E" stroke-width="2"/>
+        <circle cx="266" cy="77" r="6" fill="#FCFCF9" opacity=".85"/>
+        <text x="340" y="165" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="15" fill="#FCFCF9" letter-spacing="2">PROVIDIS</text>
+        <text x="340" y="190" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="13" fill="#0FA774" letter-spacing="2">PP-EMB-2026</text>
+        <text x="340" y="214" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#8A9096" letter-spacing="1">THESSALONIKI · GR</text>
+      </svg>
+    </div>
+    <p class="pin-caption">Figure 2-1. Skill pinout — all pins 5 V tolerant, coffee required for max clock.</p>
+  </div>
+</section>
+
+<section id="exp">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">3</span><h2>Operating History</h2></div>
+
+    <article class="job">
+      <div class="when">07/2023 — PRESENT</div>
+      <div>
+        <h3>Embedded Systems Engineer &amp; 3D Designer</h3>
+        <div class="org"><a href="https://modihive.com" target="_blank" rel="noopener">Modihive</a> · R&amp;D · Thessaloniki, Greece</div>
+        <ul>
+          <li>ESP32 &amp; RISC-V firmware in C/C++ — MQTT/TLS, CAN 2.0 / CAN FD, SPI, UART, I2C, RS485</li>
+          <li>5G IoT &amp; Raspberry Pi 4 project development; NVIDIA Jetson flashing and setup</li>
+          <li>PCB assembly, component soldering, and HW/FW/SW debugging</li>
+          <li>Python utility scripts and automation; Git version control with VSCode + PlatformIO</li>
+          <li>3D design in Fusion 360 and printing on Bambu Lab; Windows, Linux, and macOS environments</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when">11/2022 — 06/2024</div>
+      <div>
+        <h3>Medical / Dental Machine Specialist</h3>
+        <div class="org"><a href="https://apostolides.gr" target="_blank" rel="noopener">Apostolides Healthcare Technologies</a> · Thessaloniki, Greece</div>
+        <ul>
+          <li>3D printing for dental applications — Formlabs</li>
+          <li>CBCT radiology machines — Cefla &amp; Planmeca</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when">06/2016 — 04/2019</div>
+      <div>
+        <h3>Refrigeration Technician</h3>
+        <div class="org"><a href="https://realenergy.gr" target="_blank" rel="noopener">Real Energy</a> · Kalamaria, Thessaloniki, Greece</div>
+        <ul>
+          <li>Installation and servicing of refrigeration systems — hands-on electromechanical work</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="edu">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">4</span><h2>Education</h2></div>
+    <div class="rows">
+      <div class="row">
+        <div class="when">2016 — 2022</div>
+        <div>
+          <h3>BSc — Department of Automation</h3>
+          <p>International Hellenic University, Thessaloniki · Final grade 6.71 “Very Good”</p>
+          <p>Thesis (10/10): “3D Printed Robotic System” — 3D design, circuits, Arduino, Android app. Retained by the lab as a teaching artifact.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2022 — 2023</div>
+        <div>
+          <h3>PIC Microcontroller Course</h3>
+          <p>Lamprou Konstantinos, MSc · Remote · Embedded C, PIC18xx / PIC24xx architecture</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">5</span><h2>Certificates — Embedded</h2></div>
+    <div class="rows">
+      <div class="row">
+        <div class="when">04/2024 — 07/2024</div>
+        <div>
+          <h3>Mastering MCU &amp; Embedded Driver Development</h3>
+          <p>28.5 h — Bare metal: STM32 GPIO, I2C, SPI, USART drivers from scratch</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">02/2024 — 03/2024</div>
+        <div>
+          <h3>Microcontroller Embedded C: Absolute Beginners</h3>
+          <p>16.5 h — Foundation Embedded C with STM32</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">ONGOING</div>
+        <div>
+          <h3>Advanced C Programming <span class="tag">IN PROGRESS</span></h3>
+          <p>Mastering C for Embedded / Real-Time roles</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">ONGOING</div>
+        <div>
+          <h3>Mastering MCU: Timers, PWM, CAN, Low Power (MCU2) <span class="tag">IN PROGRESS</span></h3>
+          <p>STM32 Timers, CAN, RTC, PWM &amp; Low Power via HAL APIs</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">10/2022</div>
+        <div>
+          <h3>Arduino e-Learning Academy — CollegeLink</h3>
+          <p>25 h — 4 Smart Home projects on Tinkercad Autodesk</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">10/2020</div>
+        <div>
+          <h3>ECESCON 11 — Workshop: “Data Analytics for IoT”</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proj">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">6</span><h2>Typical Applications</h2></div>
+    <div class="rows">
+      <div class="row">
+        <div class="when">07/2022</div>
+        <div>
+          <h3>3D Printed Bluetooth Speaker</h3>
+          <p>Self-built from scratch — research, 3D modeling, 3D printing, and circuit design.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2022</div>
+        <div>
+          <h3>3D Printed Robotic System (BSc Thesis)</h3>
+          <p>Full-cycle build: 3D design, circuit work, Arduino firmware, and a companion Android app. Graded 10/10 and kept in the university lab as a teaching artifact. Code on <a href="https://github.com/Perry-Pro" target="_blank" rel="noopener">GitHub</a>.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note">More builds and experiments: <a href="https://github.com/Perry-Pro" target="_blank" rel="noopener">github.com/Perry-Pro</a></p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap rv">
+    <div class="sec-head"><span class="num">7</span><h2>Ordering Information</h2></div>
+    <div class="order">
+      <a href="mailto:providis.periklis@gmail.com">
+        <div class="k">Email</div>
+        <div class="v">providis.periklis@gmail.com</div>
+      </a>
+      <a href="tel:+306978499782">
+        <div class="k">Phone</div>
+        <div class="v">+30 697 849 9782</div>
+      </a>
+      <a href="https://github.com/Perry-Pro" target="_blank" rel="noopener">
+        <div class="k">GitHub</div>
+        <div class="v">Perry-Pro</div>
+      </a>
+      <a href="https://www.linkedin.com/in/periklis-providis" target="_blank" rel="noopener">
+        <div class="k">LinkedIn</div>
+        <div class="v">Periklis Providis</div>
+      </a>
+    </div>
+    <p class="note">Availability: Thessaloniki, Greece · open to embedded FW/SW roles. ♥ Platelet donor.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:0 24px">
+    <span>© 2026 PERIKLIS PROVIDIS</span>
+    <span>THIS DATASHEET IS SUBJECT TO CHANGE WITHOUT NOTICE.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.08});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
